@@ -46,9 +46,9 @@ jobs:
         - name: Print version
           shell: bash
           run: |
-            flutter --version
-            flutter doctor -v
-            java --version
+            flutter --version || true
+            flutter doctor -v || true
+            java --version || true
 
         - name: Set up Rust
           uses: actions-rs/toolchain@v1
