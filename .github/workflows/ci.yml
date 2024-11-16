@@ -32,10 +32,13 @@ jobs:
           with:
             ndk-version: r25c
             add-to-path: true
-        - name: Set up Flutter
-          uses: subosito/flutter-action@v2
-          with:
-            flutter-version: '3.22.0'
+
+        - name: Set up custom flutter and add to github action PATH
+          shell: bash
+          run: |
+            pushd /opt
+            git clone https://gitee.com/harmonycommando_flutter/flutter.git --depth=1
+            echo '/opt/flutter/bin' >> $GITHUB_PATH
 
         - name: Print version
           shell: bash
@@ -66,7 +69,7 @@ jobs:
           run: |
             pushd client
             flutter pub get
-            flutter build apk --target-platform android-arm64,android-arm,android-x64 --split-per-abi --release
+            flutter build apk --target-platform android-arm64,android-arm,android-x64 --split-per-abi --release --flavor ${{ matrix.features }}
             flutter build aab --release
 
         - name: Rename apk and add features
@@ -87,6 +90,7 @@ jobs:
               mv $file $name-${{ matrix.features }}.$ext
             done
             popd
+
             pushd client/build/app/outputs/bundle/release
             # for all files with .aab suffix
             for file in *.aab; do
