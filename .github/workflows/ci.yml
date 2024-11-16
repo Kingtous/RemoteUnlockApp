@@ -6,6 +6,9 @@ on:
     # every night
     schedule:
         - cron: '0 0 * * *'
+    push:
+        branches:
+            - main
 jobs:
     build-apk:
         # matrix features 1.cn and 2.global
