@@ -66,6 +66,8 @@ jobs:
           run: |
             pushd /opt
             git clone https://gitee.com/harmonycommando_flutter/flutter.git
+            pushd flutter
+            git checkout oh-3.22.3 || true
             echo '/opt/flutter/bin' >> $GITHUB_PATH
 
         - name: Print version
