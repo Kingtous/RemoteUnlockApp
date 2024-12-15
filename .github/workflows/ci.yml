@@ -36,9 +36,9 @@ jobs:
           run: |
             pushd /opt
 
-            wget https://github.com/Kingtous/archives/releases/download/hmos-cli-sdk-5.0.5.300/hmos-cli-sdk-5.0.5.300.zip
-            wget https://github.com/Kingtous/archives/releases/download/hmos-cli-sdk-5.0.5.300/hmos-cli-sdk-5.0.5.300.z01
-            wget https://github.com/Kingtous/archives/releases/download/hmos-cli-sdk-5.0.5.300/hmos-cli-sdk-5.0.5.300.z02
+            curl -sSO https://github.com/Kingtous/archives/releases/download/hmos-cli-sdk-5.0.5.300/hmos-cli-sdk-5.0.5.300.zip
+            curl -sSO https://github.com/Kingtous/archives/releases/download/hmos-cli-sdk-5.0.5.300/hmos-cli-sdk-5.0.5.300.z01
+            curl -sSO https://github.com/Kingtous/archives/releases/download/hmos-cli-sdk-5.0.5.300/hmos-cli-sdk-5.0.5.300.z02
 
             unzip hmos-cli-sdk-5.0.5.300.zip -d /opt/
 
