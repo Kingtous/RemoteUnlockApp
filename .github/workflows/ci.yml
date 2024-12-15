@@ -51,7 +51,7 @@ jobs:
             # check unzip
             ls -l /opt
 
-            chmod a+x /opt/command-line-tools/hvigor/bin/hvigor
+            chmod a+x /opt/command-line-tools/hvigor/bin/hvigorw
             chmod a+x /opt/command-line-tools/ohpm/bin/ohpm
             chmod a+x /opt/command-line-tools/tool/node/bin/node
             chmod a+x /opt/command-line-tools/bin/*
