@@ -150,7 +150,7 @@ jobs:
             pushd client
             flutter pub get
             flutter build apk --target-platform android-arm64,android-arm,android-x64 --split-per-abi --release --flavor ${{ matrix.features }}
-            flutter build aab --release
+            flutter build aab --release --flavor ${{ matrix.features }}
 
         - name: Rename apk and add features
           shell: bash
@@ -171,7 +171,7 @@ jobs:
             done
             popd
 
-            pushd client/build/app/outputs/bundle/release
+            pushd client/build/app/outputs/bundle/${{ matrix.features }}Release
             # for all files with .aab suffix
             for file in *.aab; do
               # get the file name without extension
