@@ -26,12 +26,24 @@ jobs:
         runs-on: ubuntu-22.04
         
         steps:
-        - name: Maximize build space
-          uses: easimon/maximize-build-space@master
-          with:
-            root-reserve-mb: 512
-            swap-size-mb: 1024
-            remove-dotnet: 'true'
+        - name: Remove unused software
+          run: |
+            echo "Available storage before:"
+            df -h
+            rm -rf /usr/share/dotnet
+            # rm -rf /usr/local/lib/android
+            rm -rf /opt/ghc
+            rm -rf /opt/hostedtoolcache/CodeQL
+            echo "Available storage after:"
+            df -h
+
+        - name: Show disk space
+          shell: bash
+          run: |
+            df -h
+            free -h
+            ls -l /opt
+            
         - name: Checkout code
           uses: actions/checkout@v2
           with:
