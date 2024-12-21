@@ -54,12 +54,12 @@ jobs:
             repository: kingtous/remote_unlock_reborn
             token: ${{ secrets.GH_PAT }}
 
-        - name: Cache OpenHarmony SDK
-          id: cache-ohsdk
-          uses: actions/cache@v4
-          with:
-            path: /opt/command-line-tools
-            key: hmos-sdk-${{ env.OHOS_SDK_VERSION }}
+        # - name: Cache OpenHarmony SDK
+        #   id: cache-ohsdk
+        #   uses: actions/cache@v4
+        #   with:
+        #     path: /opt/command-line-tools
+        #     key: hmos-sdk-${{ env.OHOS_SDK_VERSION }}
   
         - name: Setup OpenHarmony SDK
           if: steps.cache-ohsdk.outputs.cache-hit != 'true'
