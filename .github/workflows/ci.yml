@@ -202,7 +202,7 @@ jobs:
           with:
             tag: nightly
             allowUpdates: true
-            artifacts: "client/build/app/outputs/bundle/release/*.aab"
+            artifacts: "client/build/app/outputs/bundle/${{ matrix.features }}Release/*.aab"
             token: ${{ secrets.GITHUB_TOKEN }}
             body: body.md
             artifactContentType: "application/vnd.android.package-archive"
